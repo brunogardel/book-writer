@@ -7,7 +7,7 @@ import json
 import os
 import re
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict, List, Optional, Tuple
 
 import streamlit as st
 
@@ -41,7 +41,7 @@ def set_current_project(name: str) -> None:
     CURRENT_PROJECT_FILE.write_text(name.strip(), encoding="utf-8")
 
 
-def list_projects() -> list[str]:
+def list_projects() -> List[str]:
     """Lista todos os projetos existentes (default + nomeados)."""
     named = []
     if PROJECTS_DIR.exists():
@@ -67,7 +67,7 @@ def delete_project(name: str) -> None:
         shutil.rmtree(project_dir)
 
 
-def get_project_dir(project: str | None = None) -> Path:
+def get_project_dir(project: Optional[str] = None) -> Path:
     """Retorna o diretório de dados do projeto (padrão = projeto ativo)."""
     name = project or get_current_project()
     if name == DEFAULT_PROJECT:
@@ -702,7 +702,7 @@ _SCENE_BREAK = re.compile(
 )
 
 
-def split_into_scenes(text: str, paragraphs_per_scene: int = 6) -> list[tuple[str, str]]:
+def split_into_scenes(text: str, paragraphs_per_scene: int = 6) -> List[Tuple[str, str]]:
     """
     Divide o texto em cenas.
 
@@ -784,7 +784,7 @@ SCORE_THRESHOLDS = {
 }
 
 
-def parse_scores(analysis_text: str) -> dict[str, int]:
+def parse_scores(analysis_text: str) -> Dict[str, int]:
     """
     Extrai as notas numéricas do texto de análise.
     Procura padrões como: Nota: X/10  ou  **Nota: X/10**
@@ -837,7 +837,7 @@ def save_score_entry(
     _write_json(_scores_file(), history)
 
 
-def get_score_history(chapter_title: str) -> list[dict]:
+def get_score_history(chapter_title: str) -> List[dict]:
     history = load_score_history()
     return history.get(chapter_title, [])
 
@@ -859,7 +859,7 @@ def score_badge(score: int) -> str:
 
 # ─── Anti-IA: Histórico de Pontuação Humana ───────────────────────────────────
 
-def parse_human_score(analysis_text: str) -> float | None:
+def parse_human_score(analysis_text: str) -> Optional[float]:
     """
     Extrai a Pontuação Humana do texto de análise Anti-IA.
     Procura padrões como: **Pontuação Humana: X/10** ou **Pontuação Humana: X.X/10**
@@ -910,7 +910,7 @@ def save_antia_score_entry(
     _write_json(_antia_scores_file(), history)
 
 
-def get_antia_score_history(chapter_title: str) -> list[dict]:
+def get_antia_score_history(chapter_title: str) -> List[dict]:
     history = load_antia_score_history()
     return history.get(chapter_title, [])
 
@@ -954,10 +954,10 @@ def compute_text_metrics(text: str) -> dict:
 
 
 def check_convergence(
-    history: list[dict],
+    history: List[dict],
     min_delta: float = 0.5,
     lookback: int = 2,
-) -> dict | None:
+) -> Optional[dict]:
     """
     Detecta platô de melhoria: se o ganho de nota nas últimas `lookback`
     revisões for menor que `min_delta`, retorna um aviso.
@@ -995,9 +995,9 @@ def check_convergence(
 
 
 def check_voice_drift(
-    history: list[dict],
+    history: List[dict],
     threshold: float = 0.15,
-) -> dict | None:
+) -> Optional[dict]:
     """
     Detecta deriva de voz comparando métricas estilísticas da v1
     com a revisão mais recente.
