@@ -1,6 +1,21 @@
 # ✍️ Escritor
 
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/streamlit-1.32+-red.svg)](https://streamlit.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/brunogardel/book-writer/workflows/CI/badge.svg)](https://github.com/brunogardel/book-writer/actions)
+
 Um aplicativo completo de suporte à escrita e edição de livros, construído com Streamlit e integrado com múltiplos modelos de IA (OpenAI, Anthropic, Google).
+
+## 📸 Screenshots
+
+<!-- Adicione screenshots do aplicativo aqui -->
+<!-- Exemplo:
+![Dashboard](screenshots/dashboard.png)
+![Editor](screenshots/editor.png)
+-->
+
+> **Nota**: Para adicionar screenshots, rode o aplicativo e capture telas das principais funcionalidades. Salve as imagens na pasta `screenshots/` e atualize esta seção.
 
 ## 🎯 Funcionalidades
 
@@ -36,7 +51,7 @@ Um aplicativo completo de suporte à escrita e edição de livros, construído c
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/book-writer.git
+git clone https://github.com/brunogardel/book-writer.git
 cd book-writer
 ```
 
@@ -93,6 +108,47 @@ book-writer/
 - Use o arquivo `.env` para variáveis de ambiente sensíveis
 - O `.gitignore` já está configurado para proteger dados sensíveis
 
+## 🧪 Desenvolvimento
+
+### Instalação para desenvolvimento
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+### Executar testes
+
+```bash
+pytest
+```
+
+### Linting e formatação
+
+```bash
+# Verificar formatação
+black --check .
+
+# Formatar código
+black .
+
+# Verificar imports
+isort --check-only .
+
+# Organizar imports
+isort .
+
+# Linting
+flake8 .
+```
+
+### CI/CD
+
+O projeto usa GitHub Actions para integração contínua:
+- Testes em múltiplas versões do Python (3.8, 3.9, 3.10, 3.11)
+- Verificação de sintaxe e linting
+- Verificação de formatação de código
+- Verificação de importação dos módulos
+
 ## 🤝 Contribuindo
 
 Contribuições são bem-vindas! Sinta-se à vontade para:
@@ -104,7 +160,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 
 ## 📝 Licença
 
-Este projeto é de uso pessoal.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 ## 👤 Autor
 
