@@ -1,6 +1,6 @@
 # ✍️ Escritor
 
-[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.32+-red.svg)](https://streamlit.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/brunogardel/book-writer/workflows/CI/badge.svg)](https://github.com/brunogardel/book-writer/actions)
@@ -44,7 +44,7 @@ Um aplicativo completo de suporte à escrita e edição de livros, construído c
 ## 🚀 Instalação
 
 ### Pré-requisitos
-- Python 3.8+
+- Python 3.9+ (requerido pelo google-generativeai)
 - pip
 
 ### Passos
@@ -144,7 +144,7 @@ flake8 .
 ### CI/CD
 
 O projeto usa GitHub Actions para integração contínua:
-- Testes em múltiplas versões do Python (3.8, 3.9, 3.10, 3.11)
+- Testes em múltiplas versões do Python (3.9, 3.10, 3.11, 3.12)
 - Verificação de sintaxe e linting
 - Verificação de formatação de código
 - Verificação de importação dos módulos
