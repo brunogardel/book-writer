@@ -1,0 +1,840 @@
+{
+  "1 A Garota de Cabelo Azul": [
+    {
+      "timestamp": "17/02 00:05",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 14.2,
+        "ttr": 0.401,
+        "avg_word_len": 4.5,
+        "word_count": 1765
+      }
+    }
+  ],
+  "2 A última viagem": [
+    {
+      "timestamp": "17/02 00:07",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 14.5,
+        "ttr": 0.421,
+        "avg_word_len": 4.52,
+        "word_count": 1390
+      }
+    }
+  ],
+  "3 A aposta.": [
+    {
+      "timestamp": "17/02 00:09",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 14.5,
+        "ttr": 0.368,
+        "avg_word_len": 4.63,
+        "word_count": 2849
+      }
+    }
+  ],
+  "4 The Queers": [
+    {
+      "timestamp": "17/02 00:11",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 15.0,
+        "ttr": 0.405,
+        "avg_word_len": 4.66,
+        "word_count": 1634
+      }
+    }
+  ],
+  "5 Hugo pega dengue.": [
+    {
+      "timestamp": "17/02 00:12",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 12.1,
+        "ttr": 0.428,
+        "avg_word_len": 4.44,
+        "word_count": 1320
+      }
+    }
+  ],
+  "6 O mundo feito  de cores.": [
+    {
+      "timestamp": "17/02 00:15",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 12.2,
+        "ttr": 0.317,
+        "avg_word_len": 4.61,
+        "word_count": 3528
+      }
+    }
+  ],
+  "7 O beijo.": [
+    {
+      "timestamp": "17/02 00:16",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.3,
+        "ttr": 0.367,
+        "avg_word_len": 4.69,
+        "word_count": 2345
+      }
+    }
+  ],
+  "8 Uma história que não está nos livros": [
+    {
+      "timestamp": "17/02 00:18",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.8,
+        "ttr": 0.369,
+        "avg_word_len": 4.45,
+        "word_count": 2444
+      }
+    }
+  ],
+  "9 Um dia a mais": [
+    {
+      "timestamp": "17/02 00:20",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.7,
+        "ttr": 0.355,
+        "avg_word_len": 4.51,
+        "word_count": 2314
+      }
+    }
+  ],
+  "10 Aprendendo Yoga": [
+    {
+      "timestamp": "17/02 09:54",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 13.1,
+        "ttr": 0.421,
+        "avg_word_len": 4.71,
+        "word_count": 1910
+      }
+    }
+  ],
+  "11 Por onde andei...": [
+    {
+      "timestamp": "17/02 09:55",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 12.3,
+        "ttr": 0.454,
+        "avg_word_len": 4.54,
+        "word_count": 1098
+      }
+    }
+  ],
+  "12 A viagem começa": [
+    {
+      "timestamp": "17/02 09:58",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.9,
+        "ttr": 0.356,
+        "avg_word_len": 4.52,
+        "word_count": 2637
+      }
+    }
+  ],
+  "13 Os surfistas.": [
+    {
+      "timestamp": "17/02 10:00",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.1,
+        "ttr": 0.431,
+        "avg_word_len": 4.4,
+        "word_count": 1458
+      }
+    }
+  ],
+  "14 Um dia em Bonito.": [
+    {
+      "timestamp": "17/02 10:04",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 11.3,
+        "ttr": 0.377,
+        "avg_word_len": 4.45,
+        "word_count": 2355
+      }
+    }
+  ],
+  "15 O trem da morte.": [
+    {
+      "timestamp": "17/02 10:06",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 11.3,
+        "ttr": 0.443,
+        "avg_word_len": 4.66,
+        "word_count": 1592
+      }
+    }
+  ],
+  "16 Venor": [
+    {
+      "timestamp": "17/02 10:08",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.9,
+        "ttr": 0.405,
+        "avg_word_len": 4.68,
+        "word_count": 1639
+      }
+    }
+  ],
+  "17 O herdeiro e o bolsista": [
+    {
+      "timestamp": "17/02 10:11",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.7,
+        "ttr": 0.333,
+        "avg_word_len": 4.47,
+        "word_count": 2470
+      }
+    }
+  ],
+  "18 O jogo do limão": [
+    {
+      "timestamp": "17/02 10:13",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.8,
+        "ttr": 0.365,
+        "avg_word_len": 4.55,
+        "word_count": 2264
+      }
+    }
+  ],
+  "19 Márcia escuta uma conversa.": [
+    {
+      "timestamp": "17/02 10:36",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 7.5,
+        "ttr": 0.381,
+        "avg_word_len": 4.33,
+        "word_count": 1811
+      }
+    }
+  ],
+  "20 Uma foto impossível": [
+    {
+      "timestamp": "17/02 10:38",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.6,
+        "ttr": 0.383,
+        "avg_word_len": 4.42,
+        "word_count": 2139
+      }
+    }
+  ],
+  "21 Krista": [
+    {
+      "timestamp": "17/02 10:41",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.7,
+        "ttr": 0.309,
+        "avg_word_len": 4.55,
+        "word_count": 4331
+      }
+    }
+  ],
+  "22 Eu amo meu violão dourado": [
+    {
+      "timestamp": "17/02 10:42",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.0,
+        "ttr": 0.424,
+        "avg_word_len": 4.56,
+        "word_count": 1665
+      }
+    }
+  ],
+  "23 Tons de Azul.": [
+    {
+      "timestamp": "17/02 10:45",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.8,
+        "ttr": 0.33,
+        "avg_word_len": 4.44,
+        "word_count": 2884
+      }
+    }
+  ],
+  "24 A viagem deve continuar": [
+    {
+      "timestamp": "17/02 10:47",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 11.5,
+        "ttr": 0.375,
+        "avg_word_len": 4.55,
+        "word_count": 1786
+      }
+    }
+  ],
+  "25 A força de Ricard": [
+    {
+      "timestamp": "17/02 10:50",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 11.7,
+        "ttr": 0.366,
+        "avg_word_len": 4.51,
+        "word_count": 2440
+      }
+    }
+  ],
+  "26 A carona": [
+    {
+      "timestamp": "17/02 10:51",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.0,
+        "ttr": 0.404,
+        "avg_word_len": 4.4,
+        "word_count": 1513
+      }
+    }
+  ],
+  "27 Lucky Starr": [
+    {
+      "timestamp": "17/02 10:53",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 13.6,
+        "ttr": 0.373,
+        "avg_word_len": 4.45,
+        "word_count": 2904
+      }
+    }
+  ],
+  "28 Filhos de Júpiter": [
+    {
+      "timestamp": "17/02 10:55",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.7,
+        "ttr": 0.415,
+        "avg_word_len": 4.35,
+        "word_count": 1733
+      }
+    }
+  ],
+  "29 A Tempestade.": [
+    {
+      "timestamp": "17/02 11:00",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.6,
+        "ttr": 0.344,
+        "avg_word_len": 4.45,
+        "word_count": 3409
+      }
+    }
+  ],
+  "30 A ilha": [
+    {
+      "timestamp": "17/02 11:03",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.3,
+        "ttr": 0.362,
+        "avg_word_len": 4.29,
+        "word_count": 2698
+      }
+    }
+  ],
+  "31 Dois dias e duas noites": [
+    {
+      "timestamp": "17/02 11:04",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.4,
+        "ttr": 0.466,
+        "avg_word_len": 4.41,
+        "word_count": 1010
+      }
+    }
+  ],
+  "32 O Resgate": [
+    {
+      "timestamp": "17/02 11:07",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.3,
+        "ttr": 0.385,
+        "avg_word_len": 4.45,
+        "word_count": 1966
+      }
+    }
+  ],
+  "33 Márcia faz sua escolha": [
+    {
+      "timestamp": "17/02 11:08",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.0,
+        "ttr": 0.43,
+        "avg_word_len": 4.09,
+        "word_count": 981
+      }
+    }
+  ],
+  "34 Adeus Bolivia": [
+    {
+      "timestamp": "17/02 11:11",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.4,
+        "ttr": 0.402,
+        "avg_word_len": 4.44,
+        "word_count": 2193
+      }
+    }
+  ],
+  "35 A Travessia": [
+    {
+      "timestamp": "17/02 11:13",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.8,
+        "ttr": 0.423,
+        "avg_word_len": 4.5,
+        "word_count": 1688
+      }
+    }
+  ],
+  "36 O Pacto": [
+    {
+      "timestamp": "17/02 11:14",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 5,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 11.1,
+        "ttr": 0.416,
+        "avg_word_len": 4.47,
+        "word_count": 1517
+      }
+    }
+  ],
+  "37 Um dos sete.": [
+    {
+      "timestamp": "17/02 11:18",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 7.8,
+        "ttr": 0.322,
+        "avg_word_len": 4.31,
+        "word_count": 3541
+      }
+    }
+  ],
+  "38 Um futuro sombrio": [
+    {
+      "timestamp": "17/02 11:21",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.3,
+        "ttr": 0.379,
+        "avg_word_len": 4.58,
+        "word_count": 2864
+      }
+    }
+  ],
+  "39 A festa de Helen": [
+    {
+      "timestamp": "17/02 13:30",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.2,
+        "ttr": 0.416,
+        "avg_word_len": 4.46,
+        "word_count": 1667
+      }
+    }
+  ],
+  "40 O dia seguinte": [
+    {
+      "timestamp": "17/02 13:32",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.5,
+        "ttr": 0.435,
+        "avg_word_len": 4.44,
+        "word_count": 1350
+      }
+    }
+  ],
+  "41 A guia": [
+    {
+      "timestamp": "17/02 13:34",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 7.1,
+        "ttr": 0.37,
+        "avg_word_len": 4.36,
+        "word_count": 1923
+      }
+    }
+  ],
+  "42 O plano de busca": [
+    {
+      "timestamp": "17/02 13:36",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.2,
+        "ttr": 0.395,
+        "avg_word_len": 4.29,
+        "word_count": 1219
+      }
+    }
+  ],
+  "43 O dom de Lucas": [
+    {
+      "timestamp": "17/02 13:38",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.0,
+        "ttr": 0.372,
+        "avg_word_len": 4.33,
+        "word_count": 1874
+      }
+    }
+  ],
+  "44 A trilha": [
+    {
+      "timestamp": "17/02 13:40",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.0,
+        "ttr": 0.381,
+        "avg_word_len": 4.35,
+        "word_count": 1913
+      }
+    }
+  ],
+  "45 O refúgio": [
+    {
+      "timestamp": "17/02 13:42",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 7.6,
+        "ttr": 0.361,
+        "avg_word_len": 4.32,
+        "word_count": 2364
+      }
+    }
+  ],
+  "46 Escondido a céu aberto": [
+    {
+      "timestamp": "17/02 13:45",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.5,
+        "ttr": 0.354,
+        "avg_word_len": 4.39,
+        "word_count": 2279
+      }
+    }
+  ],
+  "47 De outro planeta": [
+    {
+      "timestamp": "17/02 13:47",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 6,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 7.1,
+        "ttr": 0.319,
+        "avg_word_len": 4.7,
+        "word_count": 3407
+      }
+    }
+  ],
+  "48 A cidade perdida.": [
+    {
+      "timestamp": "17/02 13:50",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 6.4,
+        "ttr": 0.4,
+        "avg_word_len": 4.28,
+        "word_count": 2073
+      }
+    }
+  ],
+  "49 A hacienda.": [
+    {
+      "timestamp": "17/02 14:11",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 10.1,
+        "ttr": 0.439,
+        "avg_word_len": 4.51,
+        "word_count": 1785
+      }
+    }
+  ],
+  "50 Simon conta sua história.": [
+    {
+      "timestamp": "17/02 14:13",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 8.9,
+        "ttr": 0.371,
+        "avg_word_len": 4.32,
+        "word_count": 2213
+      }
+    }
+  ],
+  "51 A cabana": [
+    {
+      "timestamp": "17/02 14:15",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.9,
+        "ttr": 0.399,
+        "avg_word_len": 4.28,
+        "word_count": 1971
+      }
+    }
+  ],
+  "52 John conta sua história": [
+    {
+      "timestamp": "17/02 14:17",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 7.8,
+        "ttr": 0.36,
+        "avg_word_len": 4.15,
+        "word_count": 1990
+      }
+    }
+  ],
+  "53 A revelação": [
+    {
+      "timestamp": "17/02 14:20",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.1,
+        "ttr": 0.366,
+        "avg_word_len": 4.27,
+        "word_count": 1933
+      }
+    }
+  ],
+  "54 - A Revelação Parte II": [
+    {
+      "timestamp": "17/02 14:23",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 7,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 7.7,
+        "ttr": 0.313,
+        "avg_word_len": 4.52,
+        "word_count": 3091
+      }
+    }
+  ],
+  "Prólogo": [
+    {
+      "timestamp": "17/02 00:03",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "score": 5,
+      "revision": 1,
+      "metrics": {
+        "avg_sentence_len": 9.7,
+        "ttr": 0.408,
+        "avg_word_len": 4.55,
+        "word_count": 1900
+      }
+    },
+    {
+      "timestamp": "23/02 00:31",
+      "model": "gpt-5-mini",
+      "mode": "full",
+      "score": 5.8,
+      "revision": 2,
+      "metrics": {
+        "avg_sentence_len": 8.6,
+        "ttr": 0.398,
+        "avg_word_len": 4.3,
+        "word_count": 2020
+      }
+    }
+  ]
+}

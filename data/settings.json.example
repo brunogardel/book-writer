@@ -1,0 +1,11 @@
+{
+  "ai_provider": "openai",
+  "ai_model": "gpt-4",
+  "temperature": 0.7,
+  "max_tokens": 4096,
+  "api_keys": {
+    "openai": "sua-chave-openai-aqui",
+    "anthropic": "sua-chave-anthropic-aqui",
+    "google": "sua-chave-google-aqui"
+  }
+}

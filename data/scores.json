@@ -1,0 +1,21 @@
+{
+  "Capítulo 52 - John conta sua história": [
+    {
+      "timestamp": "15/02 16:25",
+      "model": "gpt-4.1",
+      "mode": "full",
+      "scores": {
+        "Ritmo e Pacing": 7,
+        "Desenvolvimento de Personagens": 8,
+        "Diálogos": 6,
+        "Descrições e Imagens": 9,
+        "Conflito e Tensão": 7,
+        "Voz e Estilo": 8,
+        "Originalidade": 7,
+        "Engajamento": 8
+      },
+      "average": 7.5,
+      "revision": 1
+    }
+  ]
+}
