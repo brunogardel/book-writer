@@ -223,3 +223,44 @@ PROVIDER_NAMES = {
     "anthropic": "Anthropic (Claude)",
     "gemini": "Google (Gemini)",
 }
+
+
+def call_ai_for_task(
+    task: str,
+    user_prompt: str,
+    system_prompt: str = "",
+    temperature: float = 0.7,
+    max_tokens: int = 4096,
+    use_recommended: bool = True,
+) -> str:
+    """
+    Chama a IA usando o modelo recomendado para a tarefa específica.
+
+    Args:
+        task: Nome da tarefa (anti_ia, analise_capitulo, etc.)
+        user_prompt: o prompt do usuário
+        system_prompt: instrução de sistema (opcional)
+        temperature: criatividade da resposta (0.0 a 1.0)
+        max_tokens: tamanho máximo da resposta
+        use_recommended: Se True, usa modelo recomendado. Se False, usa configuração global.
+
+    Returns:
+        Texto da resposta da IA
+    """
+    from utils.storage import get_recommended_model
+
+    # Obtém modelo recomendado (ou configuração manual)
+    model_info = get_recommended_model(task, use_recommended)
+
+    provider = model_info["provider"]
+    model = model_info["model"]
+
+    # Chama a IA com o modelo selecionado
+    return call_ai(
+        provider=provider,
+        model=model,
+        user_prompt=user_prompt,
+        system_prompt=system_prompt,
+        temperature=temperature,
+        max_tokens=max_tokens,
+    )

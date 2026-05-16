@@ -573,9 +573,67 @@ DEFAULT_PROMPTS = {
 
 DEFAULT_SETTINGS = {
     "ai_provider": "anthropic",
-    "ai_model": "claude-sonnet-4-5-20250929",
+    "ai_model": "claude-sonnet-4-6",
     "temperature": 0.3,
     "max_tokens": 8192,
+}
+
+# Modelos recomendados por funcionalidade (otimização custo-benefício)
+RECOMMENDED_MODELS = {
+    "anti_ia": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6",
+        "reason": "Detecção de padrões de IA requer raciocínio profundo",
+        "avg_cost": 0.05,  # USD por uso típico
+    },
+    "analise_capitulo": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6",
+        "reason": "Análise literária sofisticada com 8 critérios",
+        "avg_cost": 0.045,
+    },
+    "analise_livro": {
+        "provider": "anthropic",
+        "model": "claude-opus-4-7",
+        "reason": "Análise estrutural profunda do manuscrito completo",
+        "avg_cost": 0.325,
+    },
+    "continuar": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6",
+        "reason": "Manutenção de voz e estilo do autor",
+        "avg_cost": 0.021,
+    },
+    "reescrever": {
+        "provider": "anthropic",
+        "model": "claude-haiku-4-5",
+        "reason": "Reformulação mais mecânica, ótimo custo-benefício",
+        "avg_cost": 0.012,
+    },
+    "brainstorm": {
+        "provider": "google",
+        "model": "gemini-2-5-pro",
+        "reason": "Geração de ideias variadas, não precisa máxima sofisticação",
+        "avg_cost": 0.016,
+    },
+    "biblia": {
+        "provider": "anthropic",
+        "model": "claude-haiku-4-5",
+        "reason": "Extração estruturada (JSON), task repetitiva",
+        "avg_cost": 0.007,
+    },
+    "escrita_cena": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6",
+        "reason": "Prosa literária humanizada mantendo voz narrativa",
+        "avg_cost": 0.038,
+    },
+    "busca": {
+        "provider": "anthropic",
+        "model": "claude-haiku-4-5",
+        "reason": "RAG simples, respostas baseadas em conteúdo",
+        "avg_cost": 0.012,
+    },
 }
 
 DEFAULT_BOOK = {
@@ -593,6 +651,80 @@ DEFAULT_BIBLE = {
     "mythology": [],
     "notes": "",
 }
+
+
+# ─── Sistema Inteligente de Modelos ───────────────────────────────────────────
+
+def get_recommended_model(task: str, use_recommendation: bool = True) -> Dict[str, Any]:
+    """
+    Retorna o modelo recomendado para uma tarefa específica.
+
+    Args:
+        task: Nome da tarefa (anti_ia, analise_capitulo, etc.)
+        use_recommendation: Se False, retorna modelo padrão das settings
+
+    Returns:
+        Dict com provider, model, reason, avg_cost
+    """
+    if not use_recommendation or task not in RECOMMENDED_MODELS:
+        # Fallback para configurações do usuário
+        settings = load_settings()
+        return {
+            "provider": settings.get("ai_provider", "anthropic"),
+            "model": settings.get("ai_model", "claude-sonnet-4-6"),
+            "reason": "Configuração manual do usuário",
+            "avg_cost": 0.0,  # Desconhecido
+        }
+
+    return RECOMMENDED_MODELS[task]
+
+
+def get_task_info(task: str) -> Optional[Dict[str, Any]]:
+    """
+    Retorna informações sobre uma tarefa específica.
+
+    Returns:
+        Dict com provider, model, reason, avg_cost ou None se não existir
+    """
+    return RECOMMENDED_MODELS.get(task)
+
+
+def format_cost(cost: float) -> str:
+    """
+    Formata custo em USD para exibição.
+
+    Examples:
+        0.05 -> "$0.05"
+        0.007 -> "$0.007"
+        0.0 -> "N/A"
+    """
+    if cost <= 0:
+        return "N/A"
+    if cost < 0.01:
+        return f"${cost:.3f}"
+    return f"${cost:.2f}"
+
+
+def get_model_display_name(model: str) -> str:
+    """
+    Converte ID do modelo para nome amigável.
+
+    Examples:
+        "claude-sonnet-4-6" -> "Claude Sonnet 4.6"
+        "claude-haiku-4-5" -> "Claude Haiku 4.5"
+        "gemini-2-5-pro" -> "Gemini 2.5 Pro"
+    """
+    mapping = {
+        "claude-sonnet-4-6": "Claude Sonnet 4.6",
+        "claude-sonnet-4-5-20250929": "Claude Sonnet 4.5",
+        "claude-opus-4-7": "Claude Opus 4.7",
+        "claude-haiku-4-5": "Claude Haiku 4.5",
+        "gpt-4o": "GPT-4o",
+        "gpt-4": "GPT-4",
+        "gemini-2-5-pro": "Gemini 2.5 Pro",
+        "gemini-2-0-flash": "Gemini 2.0 Flash",
+    }
+    return mapping.get(model, model)
 
 
 # ─── Funções de leitura / escrita ─────────────────────────────────────────────

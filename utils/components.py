@@ -131,3 +131,51 @@ def model_selector(key_prefix: str, default_temp: float = 0.7) -> tuple:
         )
 
     return provider, model, temperature
+
+
+def show_model_info(task: str, container=None):
+    """
+    Exibe informações sobre o modelo recomendado para a tarefa.
+
+    Args:
+        task: Nome da tarefa (anti_ia, analise_capitulo, etc.)
+        container: Container Streamlit opcional para renderizar
+
+    Returns:
+        Tuple (use_recommended: bool, override_model: str | None)
+    """
+    from utils.storage import get_task_info, format_cost, get_model_display_name
+
+    target = container if container else st
+
+    task_info = get_task_info(task)
+    if not task_info:
+        return True, None
+
+    # Mostra info do modelo recomendado
+    with target.expander("🤖 Modelo de IA Recomendado", expanded=False):
+        col1, col2 = st.columns([2, 1])
+
+        with col1:
+            model_name = get_model_display_name(task_info["model"])
+            st.markdown(f"**Modelo:** {model_name}")
+            st.caption(f"💡 {task_info['reason']}")
+
+        with col2:
+            cost_str = format_cost(task_info["avg_cost"])
+            st.metric("Custo médio", cost_str)
+
+        st.divider()
+
+        # Opção de override
+        use_recommended = st.checkbox(
+            "✅ Usar modelo recomendado (otimizado para esta tarefa)",
+            value=True,
+            key=f"use_recommended_{task}",
+            help="Desmarque para escolher manualmente nas Configurações"
+        )
+
+        if not use_recommended:
+            st.info("💡 O modelo será definido pelas suas configurações globais em ⚙️ Configurações")
+
+        return use_recommended, None
