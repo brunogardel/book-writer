@@ -18,8 +18,8 @@ from utils.storage import (
     load_book,
     get_chapters,
 )
-from utils.ai_client import call_ai, PROVIDER_NAMES
-from utils.components import model_selector
+from utils.ai_client import call_ai, call_ai_for_task, PROVIDER_NAMES
+from utils.components import model_selector, show_model_info
 
 st.set_page_config(page_title="Brainstorm — Escritor", page_icon="💡", layout="wide")
 init_session_state()
@@ -29,6 +29,9 @@ st.markdown(
     "Gere ideias criativas para trama, personagens, cenas, conflitos, "
     "diálogos, reviravoltas e muito mais."
 )
+
+# Mostra modelo recomendado e custo
+use_recommended_model, _ = show_model_info("brainstorm")
 
 prompts = load_prompts()
 prompt_data = prompts.get("brainstorm", {})
@@ -170,38 +173,55 @@ run_btn = st.button(
 
 # ─── Execução ────────────────────────────────────────────────────────────────
 if run_btn:
-    api_key = st.session_state.get("api_keys", {}).get(provider, "")
-    if not api_key:
-        st.error(f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. Vá em ⚙️ Configurações.")
-    else:
-        current_system = st.session_state.get("bs_system", system_prompt)
-        current_template = st.session_state.get("bs_user_template", user_template)
+    current_system = st.session_state.get("bs_system", system_prompt)
+    current_template = st.session_state.get("bs_user_template", user_template)
 
-        user_msg = (
-            current_template
-            .replace("{contexto}", context)
-            .replace("{tema}", brainstorm_theme)
-        )
-        user_msg += f"\n\nApresente exatamente {num_ideas} ideias distintas e desenvolvidas."
+    user_msg = (
+        current_template
+        .replace("{contexto}", context)
+        .replace("{tema}", brainstorm_theme)
+    )
+    user_msg += f"\n\nApresente exatamente {num_ideas} ideias distintas e desenvolvidas."
 
-        with st.spinner("Gerando ideias..."):
-            try:
-                result = call_ai(
-                    provider=provider,
-                    model=model,
+    with st.spinner("Gerando ideias..."):
+        try:
+            result = None
+            # Usa modelo recomendado ou configuração manual
+            if use_recommended_model:
+                result = call_ai_for_task(
+                    task="brainstorm",
                     user_prompt=user_msg,
                     system_prompt=current_system,
                     temperature=temperature,
                     max_tokens=3000,
+                    use_recommended=True,
                 )
+            else:
+                # Fallback: usa configuração manual da sidebar
+                api_key = st.session_state.get("api_keys", {}).get(provider, "")
+                if not api_key:
+                    st.error(
+                        f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. "
+                        "Vá em ⚙️ Configurações."
+                    )
+                else:
+                    result = call_ai(
+                        provider=provider,
+                        model=model,
+                        user_prompt=user_msg,
+                        system_prompt=current_system,
+                        temperature=temperature,
+                        max_tokens=3000,
+                    )
+            if result:
                 if "bs_history" not in st.session_state:
                     st.session_state["bs_history"] = []
                 st.session_state["bs_history"].append({
                     "theme": brainstorm_theme,
                     "result": result,
                 })
-            except Exception as e:
-                st.error(f"Erro: {e}")
+        except Exception as e:
+            st.error(f"Erro: {e}")
 
 # ─── Resultado ────────────────────────────────────────────────────────────────
 if "bs_history" in st.session_state and st.session_state["bs_history"]:

@@ -11,8 +11,8 @@ if str(ROOT) not in sys.path:
 
 import streamlit as st
 from utils.storage import init_session_state, load_prompts, save_prompts, reset_prompt, get_chapters
-from utils.ai_client import call_ai, PROVIDER_NAMES
-from utils.components import model_selector
+from utils.ai_client import call_ai, call_ai_for_task, PROVIDER_NAMES
+from utils.components import model_selector, show_model_info
 
 st.set_page_config(page_title="Continuar Escrevendo — Escritor", page_icon="✨", layout="wide")
 init_session_state()
@@ -22,6 +22,9 @@ st.markdown(
     "Travou? Cole o trecho onde parou e a IA continua no seu estilo, "
     "mantendo a voz, o tom e os personagens."
 )
+
+# Mostra modelo recomendado e custo
+use_recommended_model, _ = show_model_info("continuar")
 
 prompts = load_prompts()
 prompt_data = prompts.get("continuar", {})
@@ -125,34 +128,51 @@ run_btn = st.button(
 
 # ─── Execução ────────────────────────────────────────────────────────────────
 if run_btn and context_text.strip():
-    api_key = st.session_state.get("api_keys", {}).get(provider, "")
-    if not api_key:
-        st.error(f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. Vá em ⚙️ Configurações.")
-    else:
-        current_system = st.session_state.get("cont_system", system_prompt)
-        current_template = st.session_state.get("cont_user_template", user_template)
+    current_system = st.session_state.get("cont_system", system_prompt)
+    current_template = st.session_state.get("cont_user_template", user_template)
 
-        direction = f"\n\nDireção desejada: {style_hint}" if style_hint else ""
-        user_msg = current_template.replace("{texto}", context_text).replace(
-            "{num_palavras}", str(num_words)
-        ) + direction
+    direction = f"\n\nDireção desejada: {style_hint}" if style_hint else ""
+    user_msg = current_template.replace("{texto}", context_text).replace(
+        "{num_palavras}", str(num_words)
+    ) + direction
 
-        if num_variations > 1:
-            user_msg += f"\n\nApresente {num_variations} variações distintas, numeradas."
+    if num_variations > 1:
+        user_msg += f"\n\nApresente {num_variations} variações distintas, numeradas."
 
-        with st.spinner("Gerando continuação..."):
-            try:
-                result = call_ai(
-                    provider=provider,
-                    model=model,
+    with st.spinner("Gerando continuação..."):
+        try:
+            result = None
+            # Usa modelo recomendado ou configuração manual
+            if use_recommended_model:
+                result = call_ai_for_task(
+                    task="continuar",
                     user_prompt=user_msg,
                     system_prompt=current_system,
                     temperature=temperature,
                     max_tokens=num_words * 2 + 500,
+                    use_recommended=True,
                 )
+            else:
+                # Fallback: usa configuração manual da sidebar
+                api_key = st.session_state.get("api_keys", {}).get(provider, "")
+                if not api_key:
+                    st.error(
+                        f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. "
+                        "Vá em ⚙️ Configurações."
+                    )
+                else:
+                    result = call_ai(
+                        provider=provider,
+                        model=model,
+                        user_prompt=user_msg,
+                        system_prompt=current_system,
+                        temperature=temperature,
+                        max_tokens=num_words * 2 + 500,
+                    )
+            if result:
                 st.session_state["cont_result"] = result
-            except Exception as e:
-                st.error(f"Erro: {e}")
+        except Exception as e:
+            st.error(f"Erro: {e}")
 
 # ─── Resultado ────────────────────────────────────────────────────────────────
 if "cont_result" in st.session_state:

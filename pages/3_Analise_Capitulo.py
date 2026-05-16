@@ -30,8 +30,8 @@ from utils.storage import (
     check_convergence,
     check_voice_drift,
 )
-from utils.ai_client import call_ai, PROVIDER_NAMES
-from utils.components import model_selector
+from utils.ai_client import call_ai, call_ai_for_task, PROVIDER_NAMES
+from utils.components import model_selector, show_model_info
 
 st.set_page_config(page_title="Análise de Capítulo — Escritor", page_icon="🔍", layout="wide")
 init_session_state()
@@ -41,6 +41,9 @@ st.markdown(
     "Avaliação editorial rigorosa: receba notas e feedback detalhado sobre ritmo, personagens, "
     "diálogos, tensão, estilo e muito mais — como um editor profissional avaliaria seu capítulo."
 )
+
+# Mostra modelo recomendado e custo
+use_recommended_model, _ = show_model_info("analise_capitulo")
 
 prompts = load_prompts()
 prompt_data = prompts.get("analise_capitulo", {})
@@ -81,28 +84,39 @@ with st.sidebar:
 
 # ─── Helper ───────────────────────────────────────────────────────────────────
 def _call_ai_safe(text: str) -> str | None:
-    api_key = st.session_state.get("api_keys", {}).get(provider, "")
-    if not api_key:
-        st.error(
-            f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. "
-            "Vá em ⚙️ Configurações."
-        )
-        return None
-
     current_system = st.session_state.get("ac_system", system_prompt)
     current_template = st.session_state.get("ac_user_template", user_template)
     user_msg = current_template.replace("{texto}", text)
     max_tokens = st.session_state.get("max_tokens", 8192)
 
     try:
-        return call_ai(
-            provider=provider,
-            model=model,
-            user_prompt=user_msg,
-            system_prompt=current_system,
-            temperature=temperature,
-            max_tokens=max_tokens,
-        )
+        # Usa modelo recomendado ou configuração manual
+        if use_recommended_model:
+            return call_ai_for_task(
+                task="analise_capitulo",
+                user_prompt=user_msg,
+                system_prompt=current_system,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                use_recommended=True,
+            )
+        else:
+            # Fallback: usa configuração manual da sidebar
+            api_key = st.session_state.get("api_keys", {}).get(provider, "")
+            if not api_key:
+                st.error(
+                    f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. "
+                    "Vá em ⚙️ Configurações."
+                )
+                return None
+            return call_ai(
+                provider=provider,
+                model=model,
+                user_prompt=user_msg,
+                system_prompt=current_system,
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
     except Exception as e:
         st.error(f"Erro: {e}")
         return None

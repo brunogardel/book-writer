@@ -19,8 +19,8 @@ from utils.storage import (
     get_full_text,
     load_book,
 )
-from utils.ai_client import call_ai, PROVIDER_NAMES
-from utils.components import model_selector
+from utils.ai_client import call_ai, call_ai_for_task, PROVIDER_NAMES
+from utils.components import model_selector, show_model_info
 
 st.set_page_config(page_title="Análise do Livro — Escritor", page_icon="📚", layout="wide")
 init_session_state()
@@ -30,6 +30,9 @@ st.markdown(
     "Análise editorial completa do manuscrito: estrutura narrativa, temas, arcos de personagens, "
     "consistência, potencial de mercado e recomendações prioritárias de revisão."
 )
+
+# Mostra modelo recomendado e custo
+use_recommended_model, _ = show_model_info("analise_livro")
 
 prompts = load_prompts()
 prompt_data = prompts.get("analise_livro", {})
@@ -153,14 +156,6 @@ run_btn = st.button(
 
 
 def run_analysis(text: str):
-    api_key = st.session_state.get("api_keys", {}).get(provider, "")
-    if not api_key:
-        st.error(
-            f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. "
-            "Vá em ⚙️ Configurações."
-        )
-        return
-
     # Adiciona contexto ao texto se fornecido
     context_header = ""
     if ctx_genre:
@@ -176,14 +171,33 @@ def run_analysis(text: str):
 
     with st.spinner("Analisando o manuscrito... isso pode levar alguns minutos."):
         try:
-            result = call_ai(
-                provider=provider,
-                model=model,
-                user_prompt=user_msg,
-                system_prompt=current_system,
-                temperature=temperature,
-                max_tokens=max_tokens,
-            )
+            # Usa modelo recomendado ou configuração manual
+            if use_recommended_model:
+                result = call_ai_for_task(
+                    task="analise_livro",
+                    user_prompt=user_msg,
+                    system_prompt=current_system,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    use_recommended=True,
+                )
+            else:
+                # Fallback: usa configuração manual da sidebar
+                api_key = st.session_state.get("api_keys", {}).get(provider, "")
+                if not api_key:
+                    st.error(
+                        f"Chave de API para **{PROVIDER_NAMES[provider]}** não configurada. "
+                        "Vá em ⚙️ Configurações."
+                    )
+                    return
+                result = call_ai(
+                    provider=provider,
+                    model=model,
+                    user_prompt=user_msg,
+                    system_prompt=current_system,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                )
             st.session_state["al_result"] = result
         except Exception as e:
             st.error(f"Erro: {e}")
