@@ -33,12 +33,17 @@ MODEL_DISPLAY_NAMES = {
     # OpenAI — GPT-4o legado
     "gpt-4o":               "GPT-4o (legado)",
     "gpt-4o-mini":          "GPT-4o Mini (legado)",
+    # Anthropic — Claude 4.7
+    "claude-opus-4-7":                "Claude Opus 4.7 ✨ mais recente",
     # Anthropic — Claude 4.6
-    "claude-opus-4-6":                "Claude Opus 4.6 ✨ mais recente",
+    "claude-opus-4-6":                "Claude Opus 4.6",
+    "claude-sonnet-4-6":              "Claude Sonnet 4.6 ⭐ recomendado",
+    "claude-haiku-4-6":               "Claude Haiku 4.6",
     # Anthropic — Claude 4.5
     "claude-opus-4-5-20251101":       "Claude Opus 4.5",
-    "claude-sonnet-4-5-20250929":     "Claude Sonnet 4.5 ⭐ recomendado",
+    "claude-sonnet-4-5-20250929":     "Claude Sonnet 4.5",
     "claude-haiku-4-5-20251001":      "Claude Haiku 4.5 (rápido)",
+    "claude-haiku-4-5":               "Claude Haiku 4.5",
     # Anthropic — Claude 4.1
     "claude-opus-4-1-20250805":       "Claude Opus 4.1",
     # Gemini

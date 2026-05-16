@@ -195,8 +195,12 @@ AVAILABLE_MODELS = {
         "gpt-4o-mini",
     ],
     "anthropic": [
-        # ── Claude 4.6 (mais recente — fev/2026) ──────────────────────────────
+        # ── Claude 4.7 (mais recente — maio/2026) ─────────────────────────────
+        "claude-opus-4-7",
+        # ── Claude 4.6 ────────────────────────────────────────────────────────
         "claude-opus-4-6",
+        "claude-sonnet-4-6",
+        "claude-haiku-4-6",
         # ── Claude 4.5 ────────────────────────────────────────────────────────
         "claude-opus-4-5-20251101",
         "claude-sonnet-4-5-20250929",
